@@ -1,0 +1,14 @@
+# Excel Commander Backend
+# Render.com Deployment Configuration
+
+services:
+  - type: web
+    name: excel-commander-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Manual entry in dashboard
+      - key: AI_MODEL
+        value: meta-llama/llama-3.2-3b-instruct:free
