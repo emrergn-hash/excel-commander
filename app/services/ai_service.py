@@ -75,8 +75,8 @@ Kurallar:
         
         # Check if we should use a free model
         if self.model == "gpt-4o-mini" and self.api_key.startswith("sk-or-"):
-            # Default to a good free model on OpenRouter
-            self.model = "meta-llama/llama-3.2-3b-instruct:free"
+            # Default to a better free model on OpenRouter (9B is smarter than 3B)
+            self.model = "google/gemma-2-9b-it:free"
             logger.info(f"Using free OpenRouter model: {self.model}")
 
     def is_configured(self) -> bool:
