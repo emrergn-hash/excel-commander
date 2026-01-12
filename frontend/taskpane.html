@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Excel Commander</title>
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Excel Commander</span>
+            </div>
+            <span id="status-badge" class="badge badge-offline">Bağlanıyor...</span>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Command Input -->
+            <section class="section">
+                <div class="command-container">
+                    <input type="text" id="command-input" class="command-input"
+                        placeholder="Ne yapmak istiyorsun? (Örn: 'A sütununu topla')" autofocus />
+                    <button id="run-btn" class="btn btn-primary" title="Çalıştır (Ctrl+Enter)">
+                        <span>▶</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section">
+                <h3 class="section-title">🚀 Hızlı Eylemler</h3>
+                <div class="action-grid">
+                    <button class="action-card" onclick="actions.generateSlide()">
+                        <span class="action-icon">📊</span>
+                        <span class="action-title">Sunum Yap</span>
+                        <span class="action-desc">Veriyi PPT'ye çevir</span>
+                    </button>
+                    <button class="action-card" onclick="actions.cleanData()">
+                        <span class="action-icon">🧹</span>
+                        <span class="action-title">Veri Temizle</span>
+                        <span class="action-desc">İsimleri düzelt</span>
+                    </button>
+                    <button class="action-card" onclick="actions.explainFormula()">
+                        <span class="action-icon">❓</span>
+                        <span class="action-title">Formül Açıkla</span>
+                        <span class="action-desc">Ne yapıyor anlat</span>
+                    </button>
+                    <button class="action-card" onclick="actions.generateFormula()">
+                        <span class="action-icon">🧮</span>
+                        <span class="action-title">Formül Yaz</span>
+                        <span class="action-desc">Açıklamadan formül</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="section">
+                <h3 class="section-title">📋 Sonuç</h3>
+                <div id="output-panel" class="output-panel">
+                    <p class="output-placeholder">Bir komut çalıştırın veya eylem seçin...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>Excel Commander v1.0</span>
+            <a href="#" onclick="actions.showHelp()">Yardım</a>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <span>İşleniyor...</span>
+    </div>
+
+    <script type="text/javascript" src="taskpane.js"></script>
+</body>
+
+</html>
