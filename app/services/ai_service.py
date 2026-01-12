@@ -18,11 +18,29 @@ class AIService:
     """Service class for AI operations using OpenRouter."""
     
     SYSTEM_PROMPT_FORMULA = """Sen bir Excel formül uzmanısın. Kullanıcının isteğine göre doğru Excel formülünü üret.
+
+MUTLAKA GEÇERLİ EXCEL FONKSİYONLARI KULLAN:
+- Toplama: SUM veya TOPLA (Türkçe)
+- Ortalama: AVERAGE veya ORTALAMA
+- Sayma: COUNT, COUNTA veya BAĞ_DEĞ_SAY
+- Eğer: IF veya EĞER
+- Düşey arama: VLOOKUP veya DÜŞEYARA
+- Büyük: MAX veya MAK
+- Küçük: MIN veya MİN
+- Yuvarlama: ROUND veya YUVARLA
+
 Kurallar:
-1. SADECE formülü döndür, açıklama ekleme.
-2. Formül Excel syntax'ına tam uymalı (Türkçe Excel için noktalı virgül kullan).
-3. Formül daima '=' ile başlamalı.
-4. Geçersiz istek gelirse "HATA: [sebep]" döndür.
+1. SADECE formülü döndür, başka bir şey yazma.
+2. Formül daima '=' ile başlamalı (örn: =SUM(A1:A10))
+3. İngilizce fonksiyon isimleri kullan (SUM, AVERAGE, IF, vb.) - uluslararası uyumluluk için.
+4. Hücre aralıkları için A1:A10 formatını kullan.
+5. ASLA 'SONUC', 'SONUÇ' veya uydurma fonksiyon isimleri kullanma!
+6. Geçersiz istek gelirse "HATA: [sebep]" döndür.
+
+Örnek yanıtlar:
+- "A sütununu topla" → =SUM(A:A)
+- "A1'den A10'a kadar topla" → =SUM(A1:A10)
+- "Ortalamayı hesapla" → =AVERAGE(A1:A10)
 """
 
     SYSTEM_PROMPT_EXPLAIN = """Sen bir Excel eğitmenisin. Verilen formülü adım adım açıkla.
