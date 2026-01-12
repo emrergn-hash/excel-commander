@@ -2,18 +2,48 @@
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
   xsi:type="TaskPaneApp">
+
+  <!-- Basic Settings -->
   <Id>b2729352-0943-4c90-b6f7-111111111111</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Excel Commander</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Excel Commander" />
-  <Description DefaultValue="AI-powered Excel Assistant helping you generate PPTs, clean data, and send emails." />
+  <DisplayName DefaultValue="Excel Commander"/>
+  <Description DefaultValue="AI-powered Excel Assistant - Generate formulas, create presentations, and analyze data."/>
+  
+  <!-- Icon URLs -->
+  <IconUrl DefaultValue="https://excel-commander.onrender.com/taskpane/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://excel-commander.onrender.com/taskpane/icon-64.png"/>
+  
+  <!-- Support URL -->
+  <SupportUrl DefaultValue="https://excel-commander.onrender.com/"/>
+  
+  <!-- Domains -->
+  <AppDomains>
+    <AppDomain>https://excel-commander.onrender.com</AppDomain>
+  </AppDomains>
+  
+  <!-- Host Applications -->
   <Hosts>
-    <Host Name="Workbook" />
+    <Host Name="Workbook"/>
   </Hosts>
+  
+  <!-- Requirements -->
+  <Requirements>
+    <Sets>
+      <Set Name="ExcelApi" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  
+  <!-- Default Settings -->
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://excel-commander.onrender.com/taskpane/taskpane.html" />
+    <SourceLocation DefaultValue="https://excel-commander.onrender.com/taskpane/taskpane.html"/>
   </DefaultSettings>
+  
+  <!-- Permissions -->
   <Permissions>ReadWriteDocument</Permissions>
+
 </OfficeApp>
