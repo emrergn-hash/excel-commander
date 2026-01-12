@@ -4,7 +4,7 @@
  */
 
 // ============ Configuration ============
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://excel-commander.onrender.com';
 
 // ============ State ============
 let isOfficeReady = false;
